@@ -1,13 +1,389 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Belanosima:wght@400;600&family=Lato:wght@400;700&display=swap');
+/* Common Styles */
+:root {
+  --text-color: #1a2942;
+  --text-color-secondary: #7e97ad;
+  --primary-color: #0088cc;
+  --background-color: #f0f3f6;
+  --background-color-dark: #d2d9df;
+  --background-color-light: white;
+  --font-family: 'Lato', sans-serif;
+  --box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.05);
+  /* --theme-changer:7e97ad; */
+  --background-shadow: rgba(255, 255, 255, 0.7);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Dark theme styles */
+[data-theme="dark"] {
+  --text-color: #f0f0f0;
+  --text-color-secondary: #7e97ad;
+  --primary-color: #0088cc;
+  --background-color: #252329;
+  --background-color-dark: #3c393f;
+  --background-color-light: #120f13;
+  --box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.05);
+  /* --theme-changer:white; */
+  --background-shadow: rgba(0,0,0,0.7);
+}
+
+/* Body style */
+body {
+  padding: 10px;
+  margin: 0;
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+/* Theme toggle style */
+.theme-changer {
+  height: 30px;
+  width: 30px;
+  background-color: var(--background-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: var(--text-color);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Header Style */
+.header {
+  width: 80vw;
+  margin: 0 auto;
+  font-family: var(--font-family);
+  color: var(--primary-color);
+  padding: 0px 20px;
+  background-color: var(--background-color-light);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bolder;
+  box-shadow: var(--box-shadow);
+  border-radius: 10px;
+}
+
+/* Start page style */
+.start-page{
+  height: 25vh;
+  width: 80vw;
+  padding: 0 20px;
+  margin: 5px auto 0;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-weight: bolder;
+  background-color: var(--background-color-light);
+} 
+.start-page-inp{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+.start-page-input{
+  height: 25px;
+  width: 90%;
+  background-color: var(--background-color);
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  color: var(--text-color);
+}
+.start-page-submit{
+  width: 91%;
+  height: 35px;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--primary-color);
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+}
+.start-page-error-message{
+  color: red;
+  font-size: 0.7rem;
+}
+
+/* Loading style */
+.loading{
+  height: 25vh;
+  width: 80vw;
+  padding: 0 20px;
+  margin: 5px auto 0;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bolder;
+  background-color: var(--background-color-light);
+}
+
+/* Main page style */
+.main-page{
+  width: 80vw;
+  padding: 20px;
+  margin: 5px auto 0;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-weight: bolder;
+  background-color: var(--background-color-light);
+}
+.navigation{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.navigation button{
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: none;
+  font-size: 0.7rem;
+  cursor: pointer;
+}
+/* Unvisited question style */
+.default {
+  background-color: var(--background-color-dark);
+  color: var(--text-color); /* You can adjust the color as needed */
+}
+/* Current question style */
+.current {
+  background-color: blue;
+  color: white;
+}
+/* Attempted question style */
+.attempted {
+  background-color: green;
+  color: white;
+}
+/* Visited question style */
+.visited {
+  background-color: yellow;
+  color: black;
+}
+/* Define a fade-in animation */
+/* Define a fade-in animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Question Style*/
+.questions{
+  margin: 30px 0;
+  width: 100%;
+  justify-content: left;
+}
+.question{
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+  text-align: justify;
+}
+.question-options{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 0.9rem;
+}
+.label{
+  padding-left: 10px;
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  cursor: pointer;
+}
+.button-group{
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+.button-group button{
+  width: 50%;
+  height: 35px;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--primary-color);
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+}
+/* Timer style */
+.timer{
+  width: 100%;
+  margin-top: 20px;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--background-shadow);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal {
+  background-color: var(--background-color-light);
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+.modal-title{
+  font-size: 0.8 rem;
+  font-weight: bold;
+}
+.modal-subtitle{
+  font-size: 0.7 rem;
+  font-weight: 400;
+}
+.modal-buttons{
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+.modal-buttons button{
+  width: 50%;
+  height: 35px;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--primary-color);
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+}
+/* Report page style */
+.report{
+  width: 80vw;
+  padding: 20px;
+  margin: 5px auto 0;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-weight: bolder;
+  background-color: var(--background-color-light);
+}
+.report-title{
+  font-size: 1.1rem;
+  font-weight: 900;
+}
+.question-report{
+  width: inherit;
+  margin: 10px 0;
+  padding: 10px;
+  border: 3px solid var(--background-color);
+  font-size: 0.8rem;
+}
+.detailed-report{
+  font-size: 0.8rem;
+}
+.correct-answer{
+  background-color: green;
+  color: white;
+  border-radius: 5px;
+}
+.incorrect-answer{
+  background-color: red;
+  color: white;
+  border-radius: 5px;
+}
+.unattempted-answer{
+  background-color: yellow;
+  color: black;
+  border-radius: 5px;
+}
+.summary{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+  margin-top: 5px;
+}
+.summary-subdiv, .report-score{
+  height: 35px;
+  width: 100%;
+  background-color: var(--primary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  color: white;
+}
+.report-score{
+  margin-top: 5px;
+}
+
+/* Style for screen-width more than 768px or D-web */
+@media (min-width: 768px) {
+  .header {
+    width: 60%;
+  }
+  .start-page{
+    width: 60%;
+  }
+  .start-page-inp{
+    flex-direction: row;
+  }
+  .start-page-input{
+    width: 60%;
+  }
+  .start-page-submit{
+    width: 20%;
+  }
+  .loading{
+    width: 60%;
+  }
+  .main-page{
+    width: 60%;
+  }
+  .button-group button{
+    width: 25%;
+  }
+  .report{
+    width: 60%;
+  }
+  .summary{
+    flex-direction: row;
+  }
+  .summary-div{
+    width: 50%;
+  }
 }
