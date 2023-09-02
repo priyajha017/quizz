@@ -6,8 +6,8 @@ The Quiz App is a web application designed to create a seamless quiz experience 
 
 - [Installation](#installation)
 - [Usage](#usage)
-- [Techstack](#techstack)
 - [Screenshots](#screenshots)
+- [Techstack](#techstack)
 - [Badges](#badges)
 - [Contact](#contact)
 
@@ -78,8 +78,21 @@ This React quiz application guides users through a quiz-taking experience. Here'
    - If there are unattempted questions when submitting the quiz, a modal will appear.
    - The modal will ask if the user would like to try answering the remaining questions or proceed with the submission.
 
+7. **User can switch between light and dark theme**:
+    - In header there is theme toggle button, using which user can switch theme
+
 Enjoy using the React quiz application! Feel free to customize it further to meet your specific needs.
 
+### Screenshots
+**1. Start-page**
+![Alt text](image-1.png)
+
+**2. Quiz page**
+![Alt text](image-2.png)
+**3. Confirmation modal**
+![Alt text](image-3.png)
+**4. Report page**
+![Alt text](image-4.png)
 ### Techstack
 <br/>
 
