@@ -81,7 +81,7 @@ This React quiz application guides users through a quiz-taking experience. Here'
 7. **User can switch between light and dark theme**:
     - In header there is theme toggle button, using which user can switch theme
 
-Enjoy using the React quiz application! Feel free to customize it further to meet your specific needs.
+Enjoy using the React quiz application!
 
 ### Screenshots
 **1. Start-page**
